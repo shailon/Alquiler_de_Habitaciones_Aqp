@@ -1,4 +1,36 @@
 <html>
+	
+	<configuration>
+
+<system.webServer>
+
+<rewrite>
+
+    <rules>
+
+       <rule name="HTTP to HTTPS redirect" stopProcessing="true">
+
+         <match url="(.*)" />
+
+         <conditions>
+
+           <add input="{HTTPS}" pattern="off" ignoreCase="true" />
+
+         </conditions>
+
+         <action type="Redirect" redirectType="Permanent" url="https://moncryd.com/{R:1}" />
+
+       </rule>
+
+    </rules>
+
+</rewrite>
+
+</system.webServer>
+
+</configuration>
+	
+	
 <cross-domain-policy>
   <allow-access-from domain="*" />
 </cross-domain-policy>
